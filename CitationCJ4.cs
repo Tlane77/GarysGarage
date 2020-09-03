@@ -4,9 +4,17 @@ using System.Linq;
 
 namespace GarysGarage
 {
-    public class Cessna : Vehicle // Propellor light aircraft
+    public class Cessna : Vehicle, IGasVehicle // Propellor light aircraft
     {
         public double FuelCapacity { get; set; }
+
+        public int CurrentTankPercentage { get; set; }
+
+        public void RefuelTank()
+        {
+            CurrentTankPercentage = 100;
+
+        }
 
         public override void Drive()
 

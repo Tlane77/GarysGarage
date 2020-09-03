@@ -19,6 +19,17 @@ namespace GarysGarage
 
             Console.WriteLine("---------------------------------");
 
+            Zero ModelFXS = new Zero();
+            ModelFXS.Name = "ModelFXS";
+            ModelFXS.MainColor = "Cobalt Blue";
+            ModelFXS.Weight = 831;
+            ModelFXS.BatteryKWh = 100;
+            ModelFXS.Drive();
+            ModelFXS.Turn("right");
+            ModelFXS.Stop();
+
+            Console.WriteLine("---------------------------------");
+
             Titan PlatinumXD = new Titan();
             PlatinumXD.Name = "PlatinumXD";
             PlatinumXD.MainColor = "Titanium Silver";
@@ -54,6 +65,57 @@ namespace GarysGarage
             // Drive(Citation);
             // Drive(PlatinumXD);
             // Drive(ModelX);
+            // Drive(Zero);
+
+            List<IElectricVehicle> electricVehicles = new List<IElectricVehicle>()
+            {
+                ModelX,
+                ModelFXS
+            };
+
+            Console.WriteLine("Electric Vehicles");
+            foreach (IElectricVehicle ev in electricVehicles)
+            {
+                Console.WriteLine($"{ev.CurrentChargePercentage}"); //Checking Current Charge
+            }
+
+            foreach (IElectricVehicle ev in electricVehicles) //Charging Battery 
+            {
+                // This should charge the vehicle to 100%
+                ev.ChargeBattery();
+            }
+
+            foreach (IElectricVehicle ev in electricVehicles) //Checking to make sure it's fully charged.
+            {
+                Console.WriteLine($"{ev.CurrentChargePercentage}");
+            }
+
+            /***********************************************/
+
+            List<IGasVehicle> gasVehicles = new List<IGasVehicle>()
+            {
+                PlatinumXD,
+                Citation,
+                NXT22
+
+            };
+
+            Console.WriteLine("Gas Vehicles");
+            foreach (IGasVehicle gv in gasVehicles)
+            {
+                Console.WriteLine($"I currently have{gv.CurrentTankPercentage}percent in my tank"); //Checking the Percentage of Gas
+            }
+
+            foreach (IGasVehicle gv in gasVehicles) //Fueling the GasTank
+            {
+                // This should completely refuel the gas tank
+                gv.RefuelTank();
+            }
+
+            foreach (IGasVehicle gv in gasVehicles) ///ReChecking to Make Sure the Gas tank is Full.
+            {
+                Console.WriteLine($"I used all my Kroger Points on {gv.CurrentTankPercentage}percent tank of gas!");
+            }
 
         }
     }

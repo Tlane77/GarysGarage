@@ -4,9 +4,17 @@ using System.Linq;
 
 namespace GarysGarage
 {
-    public class MasterCraft : Vehicle // Speed Boat with Nitogen System
+    public class MasterCraft : Vehicle, IGasVehicle // Speed Boat with Nitogen System
     {
         public double FuelCapacity { get; set; }
+
+        public int CurrentTankPercentage { get; set; }
+
+        public void RefuelTank()
+        {
+            CurrentTankPercentage = 100;
+
+        }
 
         public override void Drive()
 
