@@ -5,13 +5,15 @@ using System.Linq;
 namespace GarysGarage
 {
 
-    public class Titan : Vehicle // Gas Powered Truck
+    public class Titan : Vehicle, IGasVehicle // Gas Powered Truck
     {
         public double FuelCapacity { get; set; }
 
+        public int CurrentTankPercentage { get; set; }
+
         public void RefuelTank()
         {
-            Console.WriteLine($"The {MainColor} Titan is now has a full tank.");
+            CurrentTankPercentage = 100;
 
         }
 
