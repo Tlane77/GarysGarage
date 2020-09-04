@@ -61,16 +61,17 @@ namespace GarysGarage
 
             Console.WriteLine("------------------------");
 
-            // Drive(NXT22);
-            // Drive(Citation);
-            // Drive(PlatinumXD);
-            // Drive(ModelX);
-            // Drive(Zero);
+            NXT22.Drive();
+            Citation.Drive();
+            PlatinumXD.Drive();
+            ModelX.Drive();
+            ModelFXS.Drive();
 
             List<IElectricVehicle> electricVehicles = new List<IElectricVehicle>()
             {
                 ModelX,
-                ModelFXS
+                ModelFXS,
+
             };
 
             Console.WriteLine("Electric Vehicles");
